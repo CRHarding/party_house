@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'party.apps.PartyConfig',
+    'accounts',
 ]
 
 MIDDLEWARE = [
@@ -120,4 +121,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+<<<<<<< HEAD
+=======
+# Redirect to home URL after login (Default redirects to /accounts/profile/)
+>>>>>>> cd89b88b6afa60dc2a2decbb177f02d247a77de2
 LOGIN_REDIRECT_URL = '/'
