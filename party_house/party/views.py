@@ -16,3 +16,12 @@ def index(request):
             'all_parties':all_parties,
         }
     )
+
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.urls import reverse_lazy
+from .models import PartyInformation
+
+class PartyCreate(CreateView):
+    model = PartyInformation
+    fields = '__all__'
+    success_url = reverse_lazy('index')
