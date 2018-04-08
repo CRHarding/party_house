@@ -6,6 +6,7 @@ class PartyInformation(models.Model):
     address_num = models.IntegerField(help_text="Enter the house address number, if none leave blank", blank=False)
     address_apt_num = models.CharField(max_length = 5, blank=True)
     address_zip = models.IntegerField(help_text="Enter the zip for the address", blank=False)
+    address_city = models.CharField(max_length = 100, blank=False)
     description = models.CharField(max_length=750, help_text="Enter a description of the party (750 max characters!)", blank=False)
     date_of_party = models.DateField('Party Date', blank=False)
 
@@ -29,6 +30,10 @@ class Party(models.Model):
 
     def __str__(self):
         return f'{self.applications}, {self.active}'
+
+class Attended(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    num_attended = models.IntegerField(blank=True, help_text="Number of parties that you've attended")
 
 class Testimonial(models.Model):
     party_id = models.ForeignKey('Party', on_delete=models.SET_NULL, null=True)
