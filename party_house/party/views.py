@@ -1,3 +1,20 @@
 from django.shortcuts import render
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import PermissionRequiredMixin
+from .models import Party, PartyInformation, Testimonial
 
-# Create your views here.
+def index(request):
+    all_parties_information = PartyInformation.objects().order_by('date_of_party')
+    active_parties = all_parties_information.entry_set.all()
+    active_parties.filter(active__exact('True'))
+    
+    return render(
+        request,
+        'index.html',
+        context=
+        {
+        'all_parties_information':all_parties_information,
+        'active_parties':active_parties
+        }
+    )

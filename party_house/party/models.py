@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 class PartyInformation(models.Model):
     address_st = models.CharField(max_length=100, help_text="Enter the street name for the party")
@@ -15,9 +16,9 @@ class PartyInformation(models.Model):
         return f'{self.address_zip}, {self.description}, {self.date_of_party}'
 
 class Party(models.Model):
-    party_information_id = models.ForeignKey('PartyInformation', on_delete=models.SET_NULL, null=True)
-    party_thrower_id = models.ForeignKey('User', related_name='party_thrower_id', on_delete=models.SET_NULL, null=True)
-    party_goer_id = models.ForeignKey('User', related_name = 'party_goer_id', on_delete=models.SET_NULL, null=True)
+    party_information_id = models.OneToOneField('PartyInformation', on_delete=models.SET_NULL, null=True)
+    party_thrower_id = models.ForeignKey(User, related_name='party_thrower_id', on_delete=models.SET_NULL, null=True)
+    party_goer_id = models.ForeignKey(User, related_name = 'party_goer_id', on_delete=models.SET_NULL, null=True)
     applications = models.IntegerField(blank=True)
     active = models.BooleanField(help_text="Is the party active? True or False")
     status = models.IntegerField(blank=False, help_text="1 for pending, 2 for accepted, 3 for rejected")
@@ -29,24 +30,9 @@ class Party(models.Model):
     def __str__(self):
         return f'{self.applications}, {self.active}'
 
-class User(models.Model):
-    f_name = models.CharField(max_length=50, help_text="Enter your first name", blank=False)
-    l_name = models.CharField(max_length=50, help_text="Enter your last name", blank=False)
-    email = models.CharField(max_length=100, blank=False, help_text="Enter your email")
-    phone_number = models.CharField(max_length=10, help_text="Enter your phone number", blank=False)
-    parties_accepted_to = models.IntegerField(blank=True)
-    parties_attended = models.IntegerField(blank=True)
-    verified = models.BooleanField()
-
-    def get_absolute_url(self):
-        return reverse('user-detail', args=[str(self.id)])
-
-    def __str__(self):
-        return f'{self.f_name}, {self.l_name}'
-
 class Testimonial(models.Model):
     party_id = models.ForeignKey('Party', on_delete=models.SET_NULL, null=True)
-    user_id = models.ForeignKey('User', on_delete=models.SET_NULL, null=True)
+    user_id = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     thumbs = models.BooleanField()
     description = models.CharField(max_length=750, help_text="How was this person?", blank=False)
 
