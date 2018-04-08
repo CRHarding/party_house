@@ -2,8 +2,9 @@ from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.mixins import PermissionRequiredMixin
-from .models import Party, PartyInformation, Testimonial, User
+from .models import Party, PartyInformation, Testimonial
 from django.views import generic
+from django.contrib.auth.models import User
 
 def index(request):
     all_parties = PartyInformation.objects.filter(active = 'True')
@@ -17,7 +18,6 @@ def index(request):
         }
     )
 
-<<<<<<< HEAD
 class PartyListView(generic.ListView):
     model = User
     context_object_name = 'my_party_list'
@@ -36,7 +36,7 @@ class PartyListView(generic.ListView):
         context['your_old_parties_attended'] = PartyInformation.objects.filter(active = 'False').filter(party__party_goer_id = self.request.user.id).filter(party__status = 2).filter(party__attended = True)
         context['your_old_parties_not_attended'] = PartyInformation.objects.filter(active = 'False').filter(party__party_goer_id = self.request.user.id).filter(party__status = 2).filter(party__attended = False)
         return context
-=======
+
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 from .models import PartyInformation
@@ -45,4 +45,3 @@ class PartyCreate(CreateView):
     model = PartyInformation
     fields = '__all__'
     success_url = reverse_lazy('index')
->>>>>>> 1a83ade1499591009c6f0716a17debef51a28727
