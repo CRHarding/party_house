@@ -24,3 +24,4 @@ from .models import PartyInformation
 class PartyCreate(CreateView):
     model = PartyInformation
     fields = '__all__'
+    success_url = reverse_lazy('index')
