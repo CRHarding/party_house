@@ -1,0 +1,86 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+
+  <h1>PROFILE PAGE</h1>
+  {% if thumbs %}
+    {% for thumb in thumbs %}
+      <p>Number of thumbs: {{ thumbs }}</p>
+    {% endfor %}
+  {% else %}
+    <p>You haven't gotten any thumbs yet!</p>
+  {% endif %}
+
+  {% if your_active_going_parties %}
+    {% for party in your_active_going_parties %}
+      <p>Upcoming Party: {{ party }}</p>
+    {% endfor %}
+  {% else %}
+    <p>You're not going to any parties!</p>
+  {% endif %}
+
+  {% if your_old_going_parties %}
+    {% for party in your_old_going_parties %}
+      <p>Old Party: {{ party }} </p>
+    {% endfor %}
+  {% else %}
+    <p>You don't have any old parties!</p>
+  {% endif %}
+
+  {% if your_active_created_parties %}
+    {% for party in your_active_created_parties %}
+      <p>Your Created Party: {{ party }} </p>
+    {% endfor %}
+  {% else %}
+    <p>You're not throwing any parties!</p>
+  {% endif %}
+
+  {% if your_old_created_parties %}
+    {% for party in your_old_created_parties %}
+      <p>Your old created parties: {{ party }} </p>
+    {% endfor %}
+  {% else %}
+    <p>You don't have any old created parties!</p>
+  {% endif %}
+
+  {% if your_active_pending_parties %}
+    {% for party in your_active_pending_parties %}
+      <p>Your active pending parties: {{ party }} </p>
+    {% endfor %}
+  {% else %}
+    <p>You don't have any active pending parties!</p>
+  {% endif %}
+
+  {% if your_active_rejected_parties %}
+    {% for party in your_active_rejected_parties %}
+      <p>Your active rejected parties: {{ party }} </p>
+    {% endfor %}
+  {% else %}
+    <p>You don't have any active rejected parties!</p>
+  {% endif %}
+
+  {% if your_active_parties_attended %}
+    {% for party in your_active_parties_attended %}
+      <p>Your active attended parties: {{ party }} </p>
+    {% endfor %}
+  {% else %}
+    <p>You don't have any active attended parties!</p>
+  {% endif %}
+
+  {% if your_old_parties_attended %}
+    {% for party in your_old_parties_attended %}
+      <p>Your old attended parties: {{ party }} </p>
+    {% endfor %}
+  {% else %}
+    <p>You don't have any old attended parties!</p>
+  {% endif %}
+
+  {% if your_old_parties_not_attended %}
+    {% for party in your_old_parties_not_attended %}
+      <p>Your old NOT attended parties: {{ party }} </p>
+    {% endfor %}
+  {% else %}
+    <p>You don't have any old NOT attended parties!</p>
+  {% endif %}
+
+{% endblock %}

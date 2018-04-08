@@ -9,7 +9,8 @@ class PartyInformation(models.Model):
     address_city = models.CharField(max_length = 100, blank=False)
     description = models.CharField(max_length=750, help_text="Enter a description of the party (750 max characters!)", blank=False)
     date_of_party = models.DateField('Party Date', blank=False)
-
+    active = models.BooleanField(help_text="Is the party active? True or False")
+    
     def get_absolute_url(self):
         return reverse('party-information-detail', args=[str(self.id)])
 
@@ -21,7 +22,6 @@ class Party(models.Model):
     party_thrower_id = models.ForeignKey(User, related_name='party_thrower_id', on_delete=models.SET_NULL, null=True)
     party_goer_id = models.ForeignKey(User, related_name = 'party_goer_id', on_delete=models.SET_NULL, null=True)
     applications = models.IntegerField(blank=True)
-    active = models.BooleanField(help_text="Is the party active? True or False")
     status = models.IntegerField(blank=False, help_text="1 for pending, 2 for accepted, 3 for rejected")
     attended=models.BooleanField(blank=True)
 
@@ -34,6 +34,13 @@ class Party(models.Model):
 class Attended(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     num_attended = models.IntegerField(blank=True, help_text="Number of parties that you've attended")
+    num_thumbs = models.IntegerField(blank=True, help_text="Number of thumbs that you have")
+
+    def get_absolute_url(self):
+        return reverse('attended', args=[str(self.id)])
+
+    def __str__(self):
+        return f'{self.num_attended}, {self.num_thumbs}'
 
 class Testimonial(models.Model):
     party_id = models.ForeignKey('Party', on_delete=models.SET_NULL, null=True)
