@@ -8,7 +8,7 @@
 
   <ul>
   {% for party in all_parties %}
-    <li>{{ party }}</li>
+    <li><a href="{{ PartyInformation.get_absolute_url }}">{{ party }}</a></li>
   {% endfor %}
   </ul>
   {% endif %}
