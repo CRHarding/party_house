@@ -1,0 +1,120 @@
+.sidebar-nav {
+    margin-top: 20px;
+    padding: 0;
+    list-style: none;
+}
+
+.font-type {
+	font-family: 'Open Sans', sans-serif;
+	font-weight: bolder;
+	color: black;
+}
+
+.navbar-font {
+	font-family: 'Roboto', sans-serif;
+}
+
+.img-responsive {
+	height: 130px;
+	margin-top: -12px;
+	padding-bottom: 50px;
+}
+
+#title-logo {
+	height: 300px;
+	margin-top: 50px;
+}
+
+#login-logo {
+	height: 300px;
+}
+
+#navigation-right {
+	padding-right: 30px;
+}
+
+h4 {
+	margin-top: -45px;
+}
+
+.navbar {
+	background-color: black;
+	opacity: 1;
+}
+
+form {
+	text-align: center;
+}
+
+.party-form {
+	text-align: center;
+}
+
+.dropdown {
+	text-align: center;
+}
+
+.dropdown-menu {
+	text-align: center;
+}
+
+.well {
+/*	width: 50%;
+*/	background-color: rgba(242, 201, 201, .5);
+}
+
+#party-index {
+	visibility: hidden;
+}
+
+body {
+	background-color: magenta;
+/*	background-image: url("https://www.art-prints-on-demand.com/kunst/petra_roeder/party_dance_hi.jpg");
+*/	text-align: center;
+	background: linear-gradient(-45deg, #EE7752, #E73C7E, #23A6D5, #23D5AB);
+	background-size: 400% 400%;
+	-webkit-animation: Gradient 15s ease infinite;
+	-moz-animation: Gradient 15s ease infinite;
+	animation: Gradient 15s ease infinite;
+}
+
+@-webkit-keyframes Gradient {
+	0% {
+		background-position: 0% 50%
+	}
+	50% {
+		background-position: 100% 50%
+	}
+	100% {
+		background-position: 0% 50%
+	}
+}
+
+@-moz-keyframes Gradient {
+	0% {
+		background-position: 0% 50%
+	}
+	50% {
+		background-position: 100% 50%
+	}
+	100% {
+		background-position: 0% 50%
+	}
+}
+
+@keyframes Gradient {
+	0% {
+		background-position: 0% 50%
+	}
+	50% {
+		background-position: 100% 50%
+	}
+	100% {
+		background-position: 0% 50%
+	}
+}
+
+
+ul {
+  	list-style-type: none;
+}
