@@ -59,14 +59,11 @@ class PartyDetailView(generic.DetailView):
         context['party_information_id'] = PartyInformation.id
         return context
 
-def PartyRSVPView(request, user_id=1, creator=1, id=1):
-    # user_id = request.GET.get('user_id')
-    # creator = request.GET.get('creator')
-    # id = request.GET.get('id')
-    # user_id = int(user_id)
-    # creator = int(creator)
-    # id = int(id)
+def PartyRSVPView(request, user_id, creator, id):
     party = Party()
-    Party.objects.create(party_information_id=id, party_thrower_id=creator, party_goer_id=user_id)
-
-    return render(request, 'party')
+    pinfo = PartyInformation.objects.get(id=id)
+    uinfo = User.objects.get(id=user_id)
+    creator = User.objects.get(id=creator)
+    Party.objects.create(party_information_id=pinfo, party_thrower_id=creator, party_goer_id=uinfo)
+    party.save()
+    return render(request, 'index.html')
