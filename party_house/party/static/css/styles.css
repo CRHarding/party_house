@@ -1,0 +1,27 @@
+.sidebar-nav {
+    margin-top: 20px;
+    padding: 0;
+    list-style: none;
+}
+
+p {
+	font-family: 'Open Sans', sans-serif;
+}
+
+.img-responsive {
+	height: 130px;
+	margin-top: -12px;
+	padding-bottom: 50px;
+}
+
+img {
+	height: 300px;
+}
+
+.navbar {
+	background-color: black;
+}
+
+body {
+	background-color: white;
+}

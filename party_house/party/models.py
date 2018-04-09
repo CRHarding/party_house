@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
-
+from django.urls import reverse
 
 class PartyInformation(models.Model):
     address_st = models.CharField(max_length=100, help_text="Enter the street name for the party")
