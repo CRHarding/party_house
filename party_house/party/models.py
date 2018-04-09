@@ -1,17 +1,18 @@
 from django.db import models
 from django.contrib.auth.models import User
-
+from django.urls import reverse
+from datetime import date
 
 class PartyInformation(models.Model):
-    address_st = models.CharField(max_length=100, help_text="Enter the street name for the party")
+    address_st = models.CharField(max_length=100, help_text="Enter the street name for the party", blank=False)
     address_num = models.IntegerField(help_text="Enter the house address number, if none leave blank", blank=False)
     address_apt_num = models.CharField(max_length = 5, blank=True)
     address_zip = models.IntegerField(help_text="Enter the zip for the address", blank=False)
     address_city = models.CharField(max_length = 100, blank=False)
     description = models.CharField(max_length=750, help_text="Enter a description of the party (750 max characters!)", blank=False)
     date_of_party = models.DateField('Party Date', blank=False)
-    active = models.BooleanField(help_text="Is the party active? True or False")
-    creator = models.ForeignKey(User, related_name = 'creator_id', on_delete=models.SET_NULL, null=True)
+    active = models.BooleanField(help_text="Is the party active?", blank=False)
+    creator = models.CharField(max_length=100, blank=False)
 
     def get_absolute_url(self):
         return reverse('party-information-detail', args=[str(self.id)])
@@ -24,8 +25,8 @@ class Party(models.Model):
     party_thrower_id = models.ForeignKey(User, related_name='party_thrower_id', on_delete=models.SET_NULL, null=True)
     party_goer_id = models.ForeignKey(User, related_name = 'party_goer_id', on_delete=models.SET_NULL, null=True)
     applications = models.IntegerField(blank=True)
-    status = models.IntegerField(blank=False, help_text="1 for pending, 2 for accepted, 3 for rejected")
-    attended=models.BooleanField(blank=True)
+    status = models.IntegerField(default=1, help_text="1 for pending, 2 for accepted, 3 for rejected")
+    attended=models.BooleanField(default=False)
 
     def get_absolute_url(self):
         return reverse('party-detail', args=[str(self.id)])

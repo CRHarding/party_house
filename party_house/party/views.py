@@ -49,5 +49,13 @@ class PartyCreate(CreateView):
 
 from django.views import generic
 
-class PartyDetailView(generic.DetailView):
+class PartyDetailView(CreateView):
     model = PartyInformation
+    fields = []
+    reverse_lazy('index')
+
+    def get_context_data(self, **kwargs):
+        context = super(PartyDetailView, self).get_context_data(**kwargs)
+        context['party_thrower_id'] = PartyInformation.creator
+        context['party_information_id'] = PartyInformation.id
+        return context

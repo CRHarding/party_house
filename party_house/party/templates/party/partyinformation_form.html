@@ -6,10 +6,94 @@
 
 <form action="" method="post">
     {% csrf_token %}
-    <table>
-    {{ form.as_table }}
-    </table>
-    <input type="submit" value="Submit" />
-
+  <table>
+    <tr>
+      <th>
+        <label for="id_address_st">Address st:</label>
+      </th>
+      <td>
+        <input type="text" name="address_st" maxlength="100" required id="id_address_st">
+        <br>
+        <span class="helptext">Enter the street name for the party</span>
+      </td>
+    </tr>
+    <tr>
+      <th>
+        <label for="id_address_num">Enter the address number:</label>
+      </th>
+      <td>
+      <input type="number" name="address_num" required id="id_address_num">
+        <br>
+        <span class="helptext">Enter the address number</span>
+      </td>
+    </tr>
+    <tr>
+      <th>
+        <label for="id_address_apt_num">Address apartment num:</label>
+      </th>
+      <td>
+        <input type="text" name="address_apt_num" maxlength="5" required="" id="id_address_st">
+        <br>
+        <span class="helptext">Enter the address apartment num (if none leave blank)</span>
+      </td>
+    </tr>
+    <tr>
+      <th>
+        <label for="id_address_zip">Zip code:</label>
+      </th>
+      <td>
+        <input type="number" name="address_zip" required id="id_address_zip">
+        <br>
+        <span class="helptext">Enter the zip code</span>
+      </td>
+    </tr>
+    <tr>
+      <th>
+        <label for="id_address_city">City: </label>
+      </th>
+      <td>
+        <input type="text" name="address_city" maxlength="100" required id="id_address_city">
+        <br>
+        <span class="helptext">Enter the city: </span>
+      </td>
+    </tr>
+    <tr>
+      <th>
+        <label for="id_description">Description of party: </label>
+      </th>
+      <td>
+        <input type="text" name="description" maxlength="750" required id="id_description">
+        <br>
+        <span class="helptext">Enter the description of the party</span>
+      </td>
+    </tr>
+    <tr>
+      <th>
+        <label for="id_date_of_party">Party date: </label>
+      </th>
+      <td>
+        <input type="text" name="date_of_party" required id="id_date_of_party">
+        <br>
+        <span class="helptext">Party date: </span>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <input type="hidden" name="creator" required  id="id_creator" value={{user.username}}>
+        <br>
+      </td>
+    </tr>
+    <tr>
+      <th>
+        <label for="id_active">Active: </label>
+      </th>
+      <td>
+        <input type="checkbox" name="active" required= id="id_active">
+        <br>
+        <span class="helptext">Is the party happening?</span>
+      </td>
+    </tr>
+  </table>
+  <input type="submit" value="Submit" />
 </form>
 {% endblock %}
