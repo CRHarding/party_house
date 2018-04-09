@@ -3,12 +3,12 @@
 {% block content %}
 <h1>House Party</h1>
 
-  <h2>Dynamic content</h2>
+  <h2>Party List:</h2>
   {% if all_parties %}
 
   <ul>
   {% for party in all_parties %}
-    <li><a href="{{ PartyInformation.get_absolute_url }}">{{ party }}</a></li>
+    <li><a href="{{ party.get_absolute_url }}">{{ party }}</a></li>
   {% endfor %}
   </ul>
   {% endif %}

@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+
 class PartyInformation(models.Model):
     address_st = models.CharField(max_length=100, help_text="Enter the street name for the party")
     address_num = models.IntegerField(help_text="Enter the house address number, if none leave blank", blank=False)
