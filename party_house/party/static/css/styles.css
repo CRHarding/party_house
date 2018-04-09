@@ -29,6 +29,9 @@
 	height: 300px;
 }
 
+#navigation-right {
+	padding-right: 30px;
+}
 
 h4 {
 	margin-top: -45px;
