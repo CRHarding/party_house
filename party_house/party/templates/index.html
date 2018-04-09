@@ -3,15 +3,24 @@
 
 {% block content %}
 <img id="title-logo" src="/static/images/house_party_iii_logo_800x600.png">
-<h4 class="font-type">Where people open their doors to new friends and community</h3>
+<h4 class="font-type">Connecting people to the parties and parties to the people</h3>
 <br><br>
 {% if all_parties %}
 
-  <ul style="wit">
-  {% for party in all_parties %}
-    <li class="font-type"><a href="{{ party.get_absolute_url }}">{{ party }}</a></li>
-  {% endfor %}
-  </ul>
+<button id="start-button" type="submit" value="Submit" class="btn btn-lg btn-primary" onclick="startButton()">Let's get started!</button>
+
+<div id="party-index" class="row">
+  <div class="col-xs-3"></div>
+  	<div class="col-xs-6 well">
+  		<ul>
+	  {% for party in all_parties %}
+	    <li class="font-type"><a href="{{ party.get_absolute_url }}">{{ party }}</a></li>
+	  {% endfor %}
+	  </ul>
+	</div>
+  <div class="col-xs-3"></div>
+</div>
+
   {% endif %}
 {% endblock %}
 

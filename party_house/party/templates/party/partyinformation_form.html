@@ -1,15 +1,16 @@
 {% extends "base_generic.html" %}
 
 {% block content %}
+<br><br><br><br><br>
+<h1 class="font-type">Where's the party?</h1><br>
 
-<h1>Where's the party?</h1><br>
-
-<form action="" method="post">
-    {% csrf_token %}
-    <table>
-    {{ form.as_table }}
-    </table>
-    <input type="submit" value="Submit" />
-
-</form>
+<div class="party-form">
+	<form action="" method="post">
+	    {% csrf_token %}
+	    <table class="font-type">
+	    {{ form.as_table }}
+	    </table>
+	    <button class="btn btn-sm btn-default" type="submit" value="Submit">Submit</button>
+	</form>
+</div>
 {% endblock %}

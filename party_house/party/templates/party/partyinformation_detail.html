@@ -1,12 +1,13 @@
 {% extends "base_generic.html" %}
 
 {% block content %}
-  <h1>{{ partyinformation.creator }}'s Party</h1>
+<br><br><br><br><br>
+  <h1 class="font-type">{{ partyinformation.creator }}'s Party</h1><br>
 
   <p><strong>Address: </strong><br>{{partyinformation.address_num}} {{partyinformation.address_st}}<br>{{partyinformation.address_city}} {{partyinformation.address_zip}}</a></p>
   <p><strong>Description: </strong><br>{{ partyinformation.description }}</p>
   <p><strong>Date: </strong><br> {{ partyinformation.date_of_party }}</p>  
 
-  <h2>Wanna go? There's X spots left! RSVP here: </h2>
-  <h3>(we gotta make a request here)</h3>  
+  <h2 class="font-type">Wanna go? There's X spots left! RSVP here: </h2>
+  <h3 class="font-type">(we gotta make a request here)</h3>  
 {% endblock %}

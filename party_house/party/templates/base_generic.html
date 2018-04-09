@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link href="https://fonts.googleapis.com/css?family=Bangers|Open+Sans" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
@@ -35,7 +36,7 @@
                           <!--The next line sends the user back to the home page-->
                           <a class="navbar-brand" href="{%url 'index' %}"> 
                               <!--Insert the file name of your brand image below after the 'img'-->
-                               <img class="img-responsive" src="/static/images/house_party_iii_logo_white.png"> 
+                               <img class="img-responsive" src="/static/images/house_party_iii_logo_white2.png"> 
                           </a>
                       </div>
                       
@@ -43,30 +44,31 @@
                           <ul class="nav navbar-nav">
                             <!--Below is where you put the rest of the links to the pages you've created. Please reference your own models
                              in Django.-->
-                              <li>
+                              <li class="navbar-font">
                                   <a href="{% url 'index' %}">Home</a>
                               </li>
-                              <li>
-                                  <a href="">All Parties</a>
+                              <li class="navbar-font">
+                                  <a href="">Parties</a>
                               </li>
                               {% if user.is_authenticated %}
                               <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Account <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
-                                  <li><a href="">My Parties</a></li>
+                                  <li class="navbar-font"><a href="">My Parties</a></li>
                                   
-                                    <li>
+                                    <li class="navbar-font">
                                         <a href="{% url 'party_create' %}">Throw a Party</a>
                                     </li>
                                 
                                   <li role="separator" class="divider"></li>
                                   <li id="username-nav" class="dropdown-header">{{ user.get_username }}</li>
-                                  <li><a href="{% url 'party-list-view' %}">Profile</a></li>
-                                  <li><a href="{% url 'logout'%}?next={{request.path}}">Logout</a></li>
+                                  <li class="navbar-font"><a href="{% url 'party-list-view' %}">Profile</a></li>
+                                  <li class="navbar-font"><a href="{% url 'logout'%}?next={{request.path}}">Logout</a></li>
                                 </ul>
                               </li>
                               {% else %}
-                                <li><a href="{% url 'login'%}?next={{request.path}}">Login</a></li>
+                                <li class="navbar-font"><a href="{% url 'login'%}?next={{request.path}}">Login</a></li>
+                                <li class="navbar-font"><a href="{% url 'login'%}?next={{request.path}}">Signup</a></li>
                               {% endif %}
                           </ul>
                       </div>
@@ -75,6 +77,21 @@
       </div>
     </div>
   </header>
-  {% block content %} {% endblock %}
+  {% block content %} {% endblock %}<br><br>
+  <footer class="footer navbar-fixed-bottom">
+    <div class= "navbar navbar-inverse navbar-static-bottom" role="navigation">
+        <div class="navbar-text pull-left">
+        </div>
+        <div class="navbar-text pull-left">
+        &copy; A Casey & Hani Joint, 2018
+        </div>
+    </div>  
+    </footer>
+    <script type="text/javascript">
+      function startButton() { 
+        document.getElementById("start-button").style.display="none"; 
+        document.getElementById("party-index").style.visibility="visible"; 
+      }
+    </script>
 </body>
 </html>
