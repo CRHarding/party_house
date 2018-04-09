@@ -4,7 +4,7 @@
     list-style: none;
 }
 
-p {
+.font-type {
 	font-family: 'Open Sans', sans-serif;
 }
 
@@ -16,12 +16,31 @@ p {
 
 img {
 	height: 300px;
+	margin-top: 50px;
+}
+
+h4 {
+	margin-top: -45px;
 }
 
 .navbar {
 	background-color: black;
+	opacity: .5;
+}
+
+.dropdown {
+	text-align: center;
+}
+
+.dropdown-menu {
+	text-align: center;
 }
 
 body {
 	background-color: white;
+	text-align: center;
+}
+
+ul {
+  	list-style-type: none;
 }

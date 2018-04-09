@@ -2,12 +2,12 @@
 
 {% block content %}
 
-{{user}}
-
-  <h1>PROFILE PAGE</h1>
+<br><br><br><br><br>
+<h1 class="font-type">{{user}}'s Profile</h1>
+<br><br>
   {% if thumbs %}
     {% for thumb in thumbs %}
-      <p>Number of thumbs: {{ thumbs }}</p>
+      <p >Number of thumbs: {{ thumbs }}</p>
     {% endfor %}
   {% else %}
     <p>You haven't gotten any thumbs yet!</p>

@@ -2,14 +2,14 @@
 {% load bootstrap3 %}
 
 {% block content %}
-<img class="title-logo" src="/static/images/house_party_iii_logo_800x600.png">
+<img id="title-logo" src="/static/images/house_party_iii_logo_800x600.png">
+<h4 class="font-type">Where people open their doors to new friends and community</h3>
+<br><br>
+{% if all_parties %}
 
-  <h2>Party List:</h2>
-  {% if all_parties %}
-
-  <ul>
+  <ul style="wit">
   {% for party in all_parties %}
-    <li><a href="{{ party.get_absolute_url }}">{{ party }}</a></li>
+    <li class="font-type"><a href="{{ party.get_absolute_url }}">{{ party }}</a></li>
   {% endfor %}
   </ul>
   {% endif %}
