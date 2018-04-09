@@ -1,6 +1,7 @@
 {% extends "base_generic.html" %}
 
 {% block content %}
+  <br><br>
   <h1>{{ partyinformation.creator }}'s Party</h1>
 
   <p><strong>Address: </strong><br>{{partyinformation.address_num}} {{partyinformation.address_st}}<br>{{partyinformation.address_city}} {{partyinformation.address_zip}}</a></p>
@@ -8,14 +9,6 @@
   <p><strong>Date: </strong><br> {{ partyinformation.date_of_party }}</p>
 
   <h2>Wanna go? There's X spots left! RSVP here: </h2>
-  <h3>(we gotta make a request here)</h3>
-  <form action="" method="post">
-      {% csrf_token %}
-      <table>
-        <input type="hidden" name="party_thrower_id" required  id="id_party_thrower_id" value={{party_information.creator}}>
-        <input type="hidden" name="party_goer_id" required  id="id_party_goer_id" value={{user.username}}>
-        <input type="hidden" name="party_information_id" required  id="id_party_information_id" value={{partyinformation.id}}>
-      </table>
-    <input type="submit" value="Go!" />
-  </form>
+  <a href="/party/RSVP/{{user.id}}/{{partyinformation.creator}}/{{partyinformation.id}}">Let's do it!</a>
+
 {% endblock %}

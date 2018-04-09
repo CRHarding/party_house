@@ -20,7 +20,7 @@
 <body>
 
   <header>
-    <div class="container clearfix">   
+    <div class="container clearfix">
       <div class= "navbar-wrapper">
           <div class="container">
               <nav class = "navbar navbar-inverse navbar-fixed-top" id="navbar_whole">
@@ -34,12 +34,12 @@
                           </button>
                           <!--Below is the top-left hand side of the screen where you usually see a company/project name and a logo-->
                           <!--The next line sends the user back to the home page-->
-                          <a class="navbar-brand" href="{%url 'index' %}"> 
+                          <a class="navbar-brand" href="{%url 'index' %}">
                               <!--Insert the file name of your brand image below after the 'img'-->
-                               <img class="img-responsive" src="/static/images/house_party_iii_logo_white2.png"> 
+                               <img class="img-responsive" src="/static/images/house_party_iii_logo_white2.png">
                           </a>
                       </div>
-                      
+
                       <div id= "navbar" class="navbar-collapse collapse">
                           <ul class="nav navbar-nav">
                             <!--Below is where you put the rest of the links to the pages you've created. Please reference your own models
@@ -58,11 +58,11 @@
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Account <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
                                   <li class="navbar-font"><a href="">My Parties</a></li>
-                                  
+
                                     <li class="navbar-font">
                                         <a href="{% url 'party_create' %}">Throw a Party</a>
                                     </li>
-                                
+
                                   <li role="separator" class="divider"></li>
                                   <li id="username-nav" class="dropdown-header">{{ user.get_username }}</li>
                                   <li class="navbar-font"><a href="{% url 'party-list-view' %}">Profile</a></li>
@@ -88,12 +88,12 @@
         <div class="navbar-text pull-left">
         &copy; A Casey & Hani Joint, 2018
         </div>
-    </div>  
+    </div>
     </footer>
     <script type="text/javascript">
-      function startButton() { 
-        document.getElementById("start-button").style.display="none"; 
-        document.getElementById("party-index").style.visibility="visible"; 
+      function startButton() {
+        document.getElementById("start-button").style.display="none";
+        document.getElementById("party-index").style.visibility="visible";
       }
     </script>
 </body>

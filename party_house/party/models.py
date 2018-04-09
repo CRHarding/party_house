@@ -21,18 +21,15 @@ class PartyInformation(models.Model):
         return f'{self.address_zip}, {self.description}, {self.date_of_party}'
 
 class Party(models.Model):
-    party_information_id = models.OneToOneField('PartyInformation', on_delete=models.SET_NULL, null=True)
+    party_information_id = models.ForeignKey(PartyInformation, on_delete=models.SET_NULL, null=True)
     party_thrower_id = models.ForeignKey(User, related_name='party_thrower_id', on_delete=models.SET_NULL, null=True)
     party_goer_id = models.ForeignKey(User, related_name = 'party_goer_id', on_delete=models.SET_NULL, null=True)
-    applications = models.IntegerField(blank=True)
+    applications = models.IntegerField(blank=True, default=1)
     status = models.IntegerField(default=1, help_text="1 for pending, 2 for accepted, 3 for rejected")
     attended=models.BooleanField(default=False)
 
     def get_absolute_url(self):
         return reverse('party-detail', args=[str(self.id)])
-
-    def __str__(self):
-        return f'{self.applications}, {self.active}'
 
 class Attended(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
