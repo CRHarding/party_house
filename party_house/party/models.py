@@ -10,7 +10,8 @@ class PartyInformation(models.Model):
     description = models.CharField(max_length=750, help_text="Enter a description of the party (750 max characters!)", blank=False)
     date_of_party = models.DateField('Party Date', blank=False)
     active = models.BooleanField(help_text="Is the party active? True or False")
-    creator = models.IntegerField(blank=False)
+    creator = models.ForeignKey(User, related_name = 'creator_id', on_delete=models.SET_NULL, null=True)
+
     def get_absolute_url(self):
         return reverse('party-information-detail', args=[str(self.id)])
 

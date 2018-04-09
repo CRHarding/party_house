@@ -43,5 +43,6 @@ from .models import PartyInformation
 
 class PartyCreate(CreateView):
     model = PartyInformation
-    fields = '__all__'
+    fields = [
+    'address_st', 'address_num', 'address_apt_num', 'address_zip', 'address_city', 'description', 'date_of_party', 'creator', 'active']
     success_url = reverse_lazy('index')
